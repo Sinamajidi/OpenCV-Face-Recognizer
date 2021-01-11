@@ -11,7 +11,7 @@ id = 0
 # names related to ids: example ==> Marcelo: id=1,  etc
 names = ['None', 'Marcelo', 'Paula', 'Ilza', 'Z', 'W']
 # Initialize and start realtime video capture
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(1)
 cam.set(3, 640)  # set video widht
 cam.set(4, 480)  # set video height
 # Define min window size to be recognized as a face
@@ -19,7 +19,6 @@ minW = 0.1*cam.get(3)
 minH = 0.1*cam.get(4)
 while True:
     ret, img = cam.read()
-    img = cv2.flip(img, -1)  # Flip vertically
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     faces = faceCascade.detectMultiScale(
